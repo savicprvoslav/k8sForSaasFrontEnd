@@ -36,6 +36,13 @@ spec:
             httpGet:
               path: /
               port: http
+          volumeMounts:
+          - mountPath: /var/www/html
+            name: app-volume
+          - mountPath: /etc/nginx/sites-available
+            name: config-volume
+          - mountPath: /var/www/errors
+            name: error-pages
           resources:
 {{ toYaml .Values.resources | indent 12 }}
     {{- with .Values.nodeSelector }}
@@ -50,3 +57,13 @@ spec:
       tolerations:
 {{ toYaml . | indent 8 }}
     {{- end }}
+      volumes:
+      - name: config-volume
+        configMap:
+          name: webapp-default-conf
+          items:
+          - key: default.conf
+          path: default.conf
+      - name: error-pages
+        configMap:
+          name: webapp-error-pages
