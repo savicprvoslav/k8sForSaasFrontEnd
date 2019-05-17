@@ -41,8 +41,8 @@ volumes: [
           passwordVariable: 'DOCKER_HUB_PASSWORD']]) {
           sh """
             docker login -u ${DOCKER_HUB_USER} -p ${DOCKER_HUB_PASSWORD}
-            docker build -t savicprvoslav/k8sForSaasFrontEnd:${gitCommit} .
-            docker push savicprvoslav/k8sForSaasFrontEnd:${gitCommit}
+            docker build -t savicprvoslav/k8sforsaasfrontend:${gitCommit} .
+            docker push savicprvoslav/k8sforsaasfrontend:${gitCommit}
             """
         }
       }
@@ -54,7 +54,7 @@ volumes: [
     }
     stage('Run helm') {
       container('helm') {
-        sh "helm upgrade --install k8sForSaasFrontEnd ./chart/ --set image.tag=${gitCommit}"
+        sh "helm upgrade --install k8sforsaasfrontend ./chart/ --set image.tag=${gitCommit}"
       }
     }
   }
