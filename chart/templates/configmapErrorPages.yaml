@@ -1,0 +1,18 @@
+apiVersion: v1
+data:
+  404.html: |
+    <html>
+      <head></head>
+      <body style="
+        margin: auto;
+        width: 550px;
+        margin-top: 100px;
+        color: #515d6f;
+      ">
+        <h1 style="font-size: 88px;margin-top: 10px;margin-bottom: 10px;">404</h1>
+        <h2 style="">We could not find the page you are looking for.</h2>
+      </body>
+    </html>
+kind: ConfigMap
+metadata:
+  name: webapp-error-pages
