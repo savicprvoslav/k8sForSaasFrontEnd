@@ -37,8 +37,6 @@ spec:
               path: /
               port: http
           volumeMounts:
-          - mountPath: /var/www/html
-            name: app-volume
           - mountPath: /etc/nginx/sites-available
             name: config-volume
           - mountPath: /var/www/errors
