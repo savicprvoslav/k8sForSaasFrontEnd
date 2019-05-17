@@ -37,7 +37,7 @@ spec:
               path: /
               port: http
           volumeMounts:
-          - mountPath: /etc/nginx/sites-available
+          - mountPath: /etc/nginx/conf.d
             name: config-volume
           - mountPath: /var/www/errors
             name: error-pages
