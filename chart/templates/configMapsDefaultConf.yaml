@@ -41,7 +41,7 @@ data:
 
 
        location ~ ^/api/(.*) {
-         proxy_pass http://k8sforsaasbackend-chart.default.svc.cluster.local:http/$1?$args;
+         proxy_pass http://k8sforsaasbackend-chart.default.svc.cluster.local/$1?$args;
        }
 
       location / {
