@@ -61,7 +61,7 @@ spec:
           name: webapp-default-conf
           items:
           - key: default.conf
-          path: default.conf
+            path: default.conf
       - name: error-pages
         configMap:
           name: webapp-error-pages
