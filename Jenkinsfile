@@ -23,7 +23,7 @@ volumes: [
    //       sh """
    //         pwd
    //
-            npm run test:clean
+   //         npm run test:clean
    //         """
    //     }
    //   }
