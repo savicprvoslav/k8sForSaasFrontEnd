@@ -17,21 +17,21 @@ volumes: [
     def shortGitCommit = "${gitCommit[0..10]}"
     def previousGitCommit = sh(script: "git rev-parse ${gitCommit}~", returnStdout: true)
 
-    stage('Test') {
-      try {
-        container('node') {
-          sh """
-            pwd
-
+   // stage('Test') {
+   //   try {
+   //     container('node') {
+   //       sh """
+   //         pwd
+   //
             npm run test:clean
-            """
-        }
-      }
-      catch (exc) {
-        println "Failed to test - ${currentBuild.fullDisplayName}"
-        throw(exc)
-      }
-    }
+   //         """
+   //     }
+   //   }
+   //   catch (exc) {
+   //     println "Failed to test - ${currentBuild.fullDisplayName}"
+   //     throw(exc)
+   //   }
+   // }
 
     stage('Create Docker images') {
       container('docker') {
